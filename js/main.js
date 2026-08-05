@@ -8,7 +8,8 @@
   if (!track || !panel) return;
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lime = getComputedStyle(document.documentElement).getPropertyValue('--lime').trim();
+  // El groc de l'app, no el lima de la pàgina: dins del telèfon manen els seus colors.
+  const tint = getComputedStyle(document.querySelector('.phone')).getPropertyValue('--app-accent').trim() || '#ffc74c';
   const SPEED = 26;          // punts per segon; a l'app es tria, aquí és calmat
   const LINE = 0.38;         // on cau la línia de lectura dins del panell
 
@@ -24,7 +25,7 @@
     track.querySelectorAll('p').forEach(p => {
       const box = p.getBoundingClientRect();
       const centre = box.top - panelTop + box.height / 2;
-      p.style.color = centre < line ? lime : '#ffffff';
+      p.style.color = centre < line ? tint : '#ffffff';
       p.style.opacity = centre < 0 ? '0.3' : '1';
     });
   }

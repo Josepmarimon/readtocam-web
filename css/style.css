@@ -141,7 +141,10 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 }
 .terms span + span::before { content: " / "; opacity: .5; }
 
-/* ---------- el telèfon amb el prompter viu ---------- */
+/* ---------- el telèfon: la mateixa interfície que l'app ----------
+   Mides preses de l'app i escalades: la pantalla real fa 402 pt d'ample i
+   aquí en fa 270, així que tot va a ~0,67. La lletra de 34 pt de l'app queda
+   en 15 px, que dona les mateixes paraules per línia. */
 
 .stage {
   background: var(--lime);
@@ -150,11 +153,10 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
   display: grid; place-items: center;
 }
 .phone {
+  --app-accent: #ffc74c;          /* el groc de l'app, no el lima de la pàgina */
+  --app-font: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, sans-serif;
   width: min(270px, 74vw); aspect-ratio: 9 / 19.5;
-  /* Imatge de càmera de debò al darrere: sense ella la meitat de baix del
-     telèfon quedava negra i morta, i el que es ven és justament que hi ha
-     una càmera funcionant sota el text. */
-  background: var(--dark) url("../assets/phone-bg.jpg") center 60% / cover no-repeat;
+  background: var(--dark) url("../assets/phone-bg.jpg") center top / cover no-repeat;
   border-radius: 34px;
   border: 5px solid #0b0e11;
   position: relative; overflow: hidden;
@@ -164,46 +166,78 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
   position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
   width: 30%; height: 20px; background: #0b0e11; border-radius: 999px; z-index: 3;
 }
+
+/* Panell: negre al 55% i cantons de 18 pt, com a l'app. */
 .prompter {
-  position: absolute; inset: 40px 10px auto 10px; height: 46%;
-  background: rgba(0,0,0,.55); border-radius: 13px; overflow: hidden;
+  position: absolute; inset: 34px 6px auto 6px; height: 44%;
+  background: rgba(0,0,0,.55); border-radius: 12px; overflow: hidden;
 }
-.prompter-track { position: absolute; inset-inline: 12px; top: 0; will-change: transform; }
+.prompter-track { position: absolute; inset-inline: 13px; top: 0; will-change: transform; }
 .prompter-track p {
-  margin: 0 0 .55em; max-width: none;
-  font-family: var(--body); font-weight: 600;
-  font-size: .78rem; line-height: 1.35; color: #fff;
+  margin: 0 0 .5em; max-width: none;
+  font-family: var(--app-font); font-weight: 600;
+  font-size: 15px; line-height: 1.3; text-align: center; color: #fff;
 }
+/* Esvaïts a les vores, proporcionals a la lletra com a l'app. */
+.prompter::before, .prompter::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 27px;
+  pointer-events: none; z-index: 2;
+}
+.prompter::before { top: 0; background: linear-gradient(to bottom, rgba(0,0,0,.85), transparent); }
+.prompter::after { bottom: 0; background: linear-gradient(to top, rgba(0,0,0,.9), transparent); }
+
 .readline {
   position: absolute; left: 0; right: 0; top: 38%;
-  height: 1px; background: rgba(198,242,74,.55);
+  height: 1px; background: color-mix(in srgb, var(--app-accent) 25%, transparent);
+  z-index: 2;
 }
 .readline::before, .readline::after {
-  content: ""; position: absolute; top: -4px;
-  border-block: 4px solid transparent;
+  content: ""; position: absolute; top: -5px;
+  border-block: 5px solid transparent;
 }
-.readline::before { left: 0; border-left: 6px solid var(--lime); }
-.readline::after { right: 0; border-right: 6px solid var(--lime); }
+.readline::before { left: 0; border-left: 7px solid var(--app-accent); }
+.readline::after { right: 0; border-right: 7px solid var(--app-accent); }
 
+/* Barra inferior: velocitat i els cinc botons, com a l'app. */
 .phone-bottom {
-  position: absolute; left: 0; right: 0; bottom: 14px;
-  display: grid; place-items: center; gap: 10px;
+  position: absolute; left: 0; right: 0; bottom: 9px;
+  display: grid; justify-items: center; gap: 11px; padding-inline: 13px;
 }
 .speed {
-  width: 74%; height: 5px; border-radius: 999px;
-  background: rgba(255,255,255,.22); position: relative;
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  background: rgba(0,0,0,.45); border-radius: 999px; padding: 5px 9px;
+  color: rgba(255,255,255,.85);
 }
-.speed::after {
-  content: ""; position: absolute; inset: 0 62% 0 0;
-  background: var(--lime); border-radius: 999px;
+.speed svg { width: 12px; height: 12px; flex: none; fill: currentColor; }
+.speed-rail { flex: 1; height: 3px; border-radius: 999px; background: rgba(255,255,255,.25); position: relative; }
+.speed-rail::before {
+  content: ""; position: absolute; inset: 0 74% 0 0;
+  background: var(--app-accent); border-radius: 999px;
 }
+.speed-rail::after {
+  content: ""; position: absolute; left: 26%; top: 50%;
+  width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px;
+  background: #fff; border-radius: 999px;
+}
+.speed b {
+  font-family: var(--mono); font-size: 8px; font-weight: 500;
+  min-width: 12px; text-align: right;
+}
+.pbar { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.pbtn {
+  width: 33px; height: 33px; border-radius: 50%;
+  background: rgba(0,0,0,.5); display: grid; place-items: center;
+}
+.pbtn svg { width: 13px; height: 13px; fill: #fff; }
 .rec {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: #ff4d43; border: 3px solid #fff;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 3px solid #fff; display: grid; place-items: center;
 }
+.rec i { width: 37px; height: 37px; border-radius: 50%; background: #ff453a; display: block; }
 .phone-time {
-  position: absolute; top: 14px; left: 14px; z-index: 4;
-  font-family: var(--mono); font-size: .58rem; color: rgba(255,255,255,.85);
+  position: absolute; top: 13px; left: 13px; z-index: 4;
+  font-family: var(--mono); font-size: 8px; color: rgba(255,255,255,.85);
+  background: rgba(0,0,0,.5); border-radius: 999px; padding: 3px 6px;
 }
 
 /* ---------- cites del problema ---------- */
