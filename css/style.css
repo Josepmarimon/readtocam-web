@@ -169,7 +169,9 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 
 /* Panell: negre al 55% i cantons de 18 pt, com a l'app. */
 .prompter {
-  position: absolute; inset: 34px 6px auto 6px; height: 44%;
+  /* 36% i no el 45% de l'app: amb la cara de la model els ulls cauen al 48%
+     de l'alçada i el panell més alt n'hi tapava un. */
+  position: absolute; inset: 34px 6px auto 6px; height: 36%;
   background: rgba(0,0,0,.55); border-radius: 12px; overflow: hidden;
 }
 .prompter-track { position: absolute; inset-inline: 13px; top: 0; will-change: transform; }
@@ -209,16 +211,47 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
   color: rgba(255,255,255,.85);
 }
 .speed svg { width: 12px; height: 12px; flex: none; fill: currentColor; }
-.speed-rail { flex: 1; height: 3px; border-radius: 999px; background: rgba(255,255,255,.25); position: relative; }
-.speed-rail::before {
-  content: ""; position: absolute; inset: 0 74% 0 0;
-  background: var(--app-accent); border-radius: 999px;
+/* El control de velocitat és de debò: es pot arrossegar i el text canvia
+   de ritme, com a l'app. */
+.speed-rail {
+  flex: 1; appearance: none; -webkit-appearance: none;
+  background: transparent; height: 14px; margin: 0; cursor: grab;
 }
-.speed-rail::after {
-  content: ""; position: absolute; left: 26%; top: 50%;
-  width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px;
-  background: #fff; border-radius: 999px;
+.speed-rail:active { cursor: grabbing; }
+.speed-rail::-webkit-slider-runnable-track {
+  height: 3px; border-radius: 999px;
+  background: linear-gradient(to right,
+    var(--app-accent) 0 var(--pct, 22%), rgba(255,255,255,.25) var(--pct, 22%) 100%);
 }
+.speed-rail::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 11px; height: 11px; margin-top: -4px;
+  background: #fff; border-radius: 999px; border: 0;
+}
+.speed-rail::-moz-range-track {
+  height: 3px; border-radius: 999px; background: rgba(255,255,255,.25);
+}
+.speed-rail::-moz-range-progress { height: 3px; border-radius: 999px; background: var(--app-accent); }
+.speed-rail::-moz-range-thumb {
+  width: 11px; height: 11px; background: #fff; border-radius: 999px; border: 0;
+}
+.speed-rail:focus-visible { outline: 2px solid var(--app-accent); outline-offset: 2px; }
+
+/* Es pot tocar per aturar el text, també com a l'app. */
+.prompter { cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+.paused-badge {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  z-index: 3; font-family: var(--app-font); font-weight: 600; font-size: 11px;
+  color: #fff; background: rgba(0,0,0,.6); border-radius: 999px;
+  padding: 4px 10px; opacity: 0; transition: opacity .18s ease; pointer-events: none;
+}
+.prompter[data-paused="true"] .paused-badge { opacity: 1; }
+.stage-hint {
+  margin: 12px 0 0; text-align: center; font-size: .78rem;
+  color: var(--muted); max-width: 24ch; margin-inline: auto;
+}
+@media (hover: none) { .stage-hint { max-width: 26ch; } }
+
 .speed b {
   font-family: var(--mono); font-size: 8px; font-weight: 500;
   min-width: 12px; text-align: right;

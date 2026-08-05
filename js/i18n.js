@@ -223,6 +223,12 @@ const T = {
 
   /* ---------- el prompter de la portada ---------- */
 
+  'demo.speed':       { en: 'Scrolling speed', ca: 'Velocitat del text', es: 'Velocidad del texto' },
+  'demo.paused':      { en: 'Paused',          ca: 'Aturat',            es: 'Parado' },
+  'demo.hint':        { en: 'Drag the speed control. Tap the text to stop it.',
+                        ca: 'Arrossega el control de velocitat. Toca el text per aturar-lo.',
+                        es: 'Arrastra el control de velocidad. Toca el texto para pararlo.' },
+
   'demo.1':           { en: 'I stopped memorising. I write it down, I read it, I look at the lens.',
                         ca: 'He deixat de memoritzar. Ho escric, ho llegeixo i miro l’objectiu.',
                         es: 'He dejado de memorizar. Lo escribo, lo leo y miro al objetivo.' },
@@ -257,6 +263,10 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const entry = T[el.dataset.i18n];
     if (entry && entry[lang]) el.textContent = entry[lang];
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const entry = T[el.dataset.i18nAria];
+    if (entry && entry[lang]) el.setAttribute('aria-label', entry[lang]);
   });
   document.querySelectorAll('.lang').forEach(btn => {
     btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
