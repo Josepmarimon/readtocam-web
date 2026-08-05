@@ -13,6 +13,11 @@
   --rule: #dedbd2;
   --dark: #15191e;
 
+  /* Colors de la marca. Van a part de la paleta de la pàgina perquè el
+     logotip ve donat i la resta no: canviar-los és tocar aquestes dues línies. */
+  --logo-ink: #1c2b5e;
+  --logo-accent: #ea8a2e;
+
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -52,10 +57,29 @@ body {
   border-bottom: 1px solid var(--rule);
 }
 .brand {
-  font-family: var(--display);
-  font-weight: 800; font-size: 1.5rem; letter-spacing: -.045em;
-  color: var(--ink); text-decoration: none; margin-right: auto;
+  text-decoration: none; margin-right: auto;
+  display: grid; gap: .1rem; line-height: 1;
 }
+.logo {
+  font-family: "Montserrat", var(--display);
+  font-size: clamp(1.35rem, 3.4vw, 1.7rem);
+  letter-spacing: -.02em; line-height: 1;
+  color: var(--logo-ink);
+}
+.logo b  { font-weight: 800; font-style: normal; }
+.logo i  { font-weight: 500; font-style: normal; }
+.logo em { font-weight: 800; font-style: normal; color: var(--logo-accent); }
+.logo-tag {
+  font-family: "Montserrat", var(--display);
+  font-weight: 500; font-size: .52em;
+  letter-spacing: .19em; text-transform: uppercase;
+  color: var(--logo-ink);
+  /* A la barra no hi cap sense inflar-la; a peu de pàgina sí. */
+  display: none;
+}
+.foot .logo { font-size: 1.15rem; }
+.foot .logo-tag { display: block; font-size: .55rem; }
+.foot .brand { margin-right: 1rem; }
 .langs { display: flex; align-items: center; gap: .1rem; }
 .lang {
   font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
