@@ -46,14 +46,14 @@ body {
 .nav {
   position: sticky; top: 0; z-index: 20;
   display: flex; align-items: center; gap: 1rem;
-  padding: .85rem var(--pad);
+  padding: .65rem var(--pad);
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
 }
 .brand {
   font-family: var(--display);
-  font-weight: 800; font-size: 1.12rem; letter-spacing: -.03em;
+  font-weight: 800; font-size: 1.5rem; letter-spacing: -.045em;
   color: var(--ink); text-decoration: none; margin-right: auto;
 }
 .langs { display: flex; align-items: center; gap: .1rem; }
@@ -94,26 +94,26 @@ h3 { font-size: 1.06rem; line-height: 1.3; font-weight: 700; letter-spacing: -.0
 .eyebrow {
   font-family: var(--mono); font-size: .66rem; letter-spacing: .16em;
   text-transform: uppercase; color: var(--ink-faint);
-  display: block; margin-bottom: 1rem;
+  display: block; margin-bottom: .65rem;
 }
 .lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 46ch; }
 p { max-width: var(--measure); }
 
-section { padding-block: clamp(3.5rem, 9vw, 7rem); }
+section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 .section-alt { background: var(--paper-2); }
 .hr { height: 1px; background: var(--rule); border: 0; margin: 0; }
 
 /* ---------- portada ---------- */
 
-.hero { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
-.hero-grid { display: grid; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
+.hero { padding-top: clamp(2rem, 4vw, 3rem); }
+.hero-grid { display: grid; gap: clamp(1.6rem, 3.5vw, 2.6rem); align-items: center; }
 @media (min-width: 900px) { .hero-grid { grid-template-columns: 1fr .82fr; } }
 
-.hero p.lede { margin: 1.15rem 0 1.9rem; }
+.hero p.lede { margin: .9rem 0 1.4rem; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; }
 .terms {
   font-family: var(--mono); font-size: .68rem; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--ink-faint); margin-top: 1.1rem;
+  text-transform: uppercase; color: var(--ink-faint); margin-top: .8rem;
 }
 .terms span + span::before { content: " / "; opacity: .5; }
 
@@ -184,22 +184,22 @@ section { padding-block: clamp(3.5rem, 9vw, 7rem); }
 
 /* ---------- cites del problema ---------- */
 
-.quotes { display: grid; gap: 0; border-top: 1px solid var(--rule); margin-top: 2.2rem; }
+.quotes { display: grid; gap: 0; border-top: 1px solid var(--rule); margin-top: 1.5rem; }
 @media (min-width: 720px) { .quotes { grid-template-columns: 1fr 1fr; } }
 .quote {
-  padding: 1.15rem 1.3rem 1.15rem 0;
+  padding: .8rem 1.3rem .8rem 0;
   border-bottom: 1px solid var(--rule);
   color: var(--ink-soft); font-size: .97rem;
 }
 @media (min-width: 720px) { .quote:nth-child(even) { padding-left: 1.6rem; } }
-.verdict { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin-top: 2rem; }
+.verdict { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin-top: 1.4rem; }
 
 /* ---------- funcions ---------- */
 
-.features { display: grid; gap: clamp(2rem, 5vw, 3rem); }
+.features { display: grid; gap: clamp(1.5rem, 3.2vw, 2.4rem); }
 @media (min-width: 860px) { .features { grid-template-columns: repeat(2, 1fr); } }
 
-.feature { display: grid; gap: 1rem; align-content: start; }
+.feature { display: grid; gap: .65rem; align-content: start; }
 .feature-num {
   font-family: var(--mono); font-size: .66rem; letter-spacing: .14em;
   color: var(--lime-deep);
@@ -210,9 +210,9 @@ section { padding-block: clamp(3.5rem, 9vw, 7rem); }
   display: block; width: 100%; height: auto; border-radius: 16px;
   border: 1px solid var(--rule); background: var(--dark);
 }
-.shot--tall { max-width: 300px; }
+.shot--tall { max-width: 232px; margin-top: .4rem; }
 
-.gallery { display: grid; gap: 1.2rem; margin-top: 2.5rem; }
+.gallery { display: grid; gap: 1.2rem; margin-top: 1.8rem; }
 @media (min-width: 720px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
 
 /* ---------- privadesa, en fosc ---------- */
@@ -221,7 +221,7 @@ section { padding-block: clamp(3.5rem, 9vw, 7rem); }
 .dark h2 { color: #fff; }
 .dark p { color: #b6bcc3; }
 .dark .eyebrow { color: var(--lime); }
-.privacy-list { display: grid; gap: .85rem; margin-top: 1.8rem; padding: 0; list-style: none; }
+.privacy-list { display: grid; gap: .85rem; margin-top: 1.3rem; padding: 0; list-style: none; }
 @media (min-width: 720px) { .privacy-list { grid-template-columns: repeat(3, 1fr); } }
 .privacy-list li {
   font-family: var(--display); font-weight: 700; font-size: 1rem;
@@ -236,7 +236,7 @@ section { padding-block: clamp(3.5rem, 9vw, 7rem); }
 .close .hero-cta { justify-content: center; }
 .close .terms { text-align: center; }
 
-footer { border-top: 1px solid var(--rule); padding-block: 2.2rem; }
+footer { border-top: 1px solid var(--rule); padding-block: 1.6rem; }
 .foot {
   display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; align-items: center;
   font-size: .85rem; color: var(--ink-soft);
@@ -247,12 +247,12 @@ footer { border-top: 1px solid var(--rule); padding-block: 2.2rem; }
 /* ---------- pàgines de text ---------- */
 
 .doc { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
-.doc h2 { font-size: clamp(1.3rem, 3vw, 1.7rem); margin-top: 2.4rem; margin-bottom: .5rem; }
+.doc h2 { font-size: clamp(1.3rem, 3vw, 1.7rem); margin-top: 1.8rem; margin-bottom: .4rem; }
 .doc p { color: var(--ink-soft); }
 .faq { border-top: 1px solid var(--rule); margin-top: 2rem; }
 .faq details { border-bottom: 1px solid var(--rule); }
 .faq summary {
-  cursor: pointer; list-style: none; padding: 1.05rem 0;
+  cursor: pointer; list-style: none; padding: .85rem 0;
   font-family: var(--display); font-weight: 700; font-size: 1rem;
   display: flex; gap: 1rem; align-items: baseline;
 }
