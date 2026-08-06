@@ -153,3 +153,43 @@
   panel.dataset.paused = String(paused);
   requestAnimationFrame(loop);
 })();
+
+/* El vídeo del bloc «Look at the camera». Va sol i sense so: una pàgina que
+   et parla sense demanar-t'ho és una pàgina que tanques. Però la model
+   llegeix el guió en veu alta, que és justament el que s'hi vol ensenyar,
+   així que hi ha un botó per sentir-ho. */
+(function () {
+  const video = document.querySelector('.in-use video');
+  const boto = document.querySelector('.sound');
+  if (!video || !boto) return;
+
+  const T = window.readtocamStrings || {};
+  const etiqueta = () => {
+    const clau = video.muted ? 'video.sound' : 'video.mute';
+    const entrada = T[clau];
+    const idioma = document.documentElement.lang || 'en';
+    if (entrada && entrada[idioma]) boto.setAttribute('aria-label', entrada[idioma]);
+    boto.setAttribute('aria-pressed', String(!video.muted));
+  };
+
+  boto.addEventListener('click', () => {
+    video.muted = !video.muted;
+    if (!video.muted) video.play().catch(() => {});
+    etiqueta();
+  });
+
+  // El canvi d'idioma reescriu l'etiqueta des de data-i18n-aria i perdria
+  // l'estat: es torna a posar la que toca segons si sona o no.
+  document.addEventListener('languagechange', etiqueta);
+
+  // A qui ha demanat menys moviment no se li engega res sol; se li donen
+  // els controls i que decideixi.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video.removeAttribute('autoplay');
+    video.pause();
+    video.controls = true;
+    boto.hidden = true;
+  }
+
+  etiqueta();
+})();

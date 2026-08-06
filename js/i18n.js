@@ -13,9 +13,11 @@ const T = {
   'hero.lede':        { en: 'ReadToCam puts your script at the top of the screen, right next to the front lens. It scrolls by itself. One take is enough.',
                         ca: 'ReadToCam et posa el guió a dalt de la pantalla, tocant a l’objectiu frontal. Es desplaça sol. Amb una presa n’hi ha prou.',
                         es: 'ReadToCam te pone el guion arriba de la pantalla, pegado al objetivo frontal. Se desplaza solo. Con una toma basta.' },
-  'hero.alt':         { en: 'Someone recording herself at home, holding the phone at arm’s length with the script on screen',
-                        ca: 'Algú gravant-se a casa, amb el telèfon al braç estès i el guió a la pantalla',
-                        es: 'Alguien grabándose en casa, con el teléfono en el brazo extendido y el guion en la pantalla' },
+  'hero.alt':         { en: 'Someone recording herself at home, reading a script while looking at the camera',
+                        ca: 'Algú gravant-se a casa, llegint un guió mentre mira a càmera',
+                        es: 'Alguien grabándose en casa, leyendo un guion mientras mira a cámara' },
+  'video.sound':      { en: 'Turn the sound on', ca: 'Activa el so', es: 'Activar el sonido' },
+  'video.mute':       { en: 'Turn the sound off', ca: 'Desactiva el so', es: 'Desactivar el sonido' },
   'badge.alt':        { en: 'Download on the App Store',
                         ca: 'Descarregar a l’App Store',
                         es: 'Consíguelo en el App Store' },
@@ -263,6 +265,8 @@ function pick() {
   }
   return 'en';
 }
+
+window.readtocamStrings = T;
 
 function setLanguage(lang) {
   if (!SUPPORTED.includes(lang)) lang = 'en';

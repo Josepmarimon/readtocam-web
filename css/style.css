@@ -177,10 +177,26 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 /* Una banda ampla, no una segona columna: el hero de dalt ja és text a
    l'esquerra i telèfon a la dreta, i repetir-ho aquí quedava monòton. */
 .in-use {
-  display: block; width: 100%; height: auto;
-  margin-top: clamp(1.6rem, 3.5vw, 2.4rem);
-  border-radius: 20px;
+  position: relative; margin: clamp(1.6rem, 3.5vw, 2.4rem) 0 0;
+  border-radius: 20px; overflow: hidden; line-height: 0;
 }
+.in-use video { display: block; width: 100%; height: auto; }
+
+/* Arrenca sense so perquè ningú no vol que una pàgina li parli sense
+   demanar-ho, però la model llegeix el guió en veu alta i qui vulgui
+   sentir-ho ha de poder. */
+.sound {
+  position: absolute; right: 14px; bottom: 14px;
+  width: 40px; height: 40px; padding: 0; border: 0; cursor: pointer;
+  border-radius: 999px; background: rgba(21,25,30,.55); color: #fff;
+  display: grid; place-items: center; backdrop-filter: blur(6px);
+  transition: background .15s ease;
+}
+.sound:hover { background: rgba(21,25,30,.75); }
+.sound svg { width: 20px; height: 20px; fill: currentColor; }
+.sound .on { display: none; }
+.sound[aria-pressed="true"] .on  { display: block; }
+.sound[aria-pressed="true"] .off { display: none; }
 
 .terms {
   font-family: var(--mono); font-size: .68rem; letter-spacing: .08em;
