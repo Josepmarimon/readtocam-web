@@ -11,7 +11,9 @@ const T = {
                         ca: 'ReadToCam et posa el guió a dalt de la pantalla, tocant a l’objectiu frontal. Es desplaça sol. Amb una presa n’hi ha prou.',
                         es: 'ReadToCam te pone el guion arriba de la pantalla, pegado al objetivo frontal. Se desplaza solo. Con una toma basta.' },
   'hero.cta':         { en: 'Download on the App Store', ca: 'Descarrega-la a l’App Store', es: 'Descárgala en el App Store' },
-  'hero.price':       { en: '€1.50 a month',        ca: '1,50 € al mes',       es: '1,50 € al mes' },
+  'hero.price':       { en: '7 days free, then €1.50 a month',
+                        ca: '7 dies gratis i després 1,50 € al mes',
+                        es: '7 días gratis y después 1,50 € al mes' },
   'hero.noaccount':   { en: 'No account',           ca: 'Sense compte',        es: 'Sin cuenta' },
   'hero.nothing':     { en: 'Nothing leaves your phone', ca: 'Res no surt del telèfon', es: 'Nada sale de tu teléfono' },
 
