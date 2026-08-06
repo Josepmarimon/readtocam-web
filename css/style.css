@@ -13,10 +13,11 @@
   --rule: #dedbd2;
   --dark: #15191e;
 
-  /* Colors de la marca. Van a part de la paleta de la pàgina perquè el
-     logotip ve donat i la resta no: canviar-los és tocar aquestes dues línies. */
+  /* Colors de la marca. El "Cam" agafa el lima de la pàgina en la versió
+     fosca, no el clar: sobre el paper el lima clar es queda en 1,16:1 i la
+     paraula desapareix. Aquest es llegeix com el taronja que hi havia abans. */
   --logo-ink: #1c2b5e;
-  --logo-accent: #ea8a2e;
+  --logo-accent: var(--lime-deep);
 
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
