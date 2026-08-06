@@ -13,6 +13,9 @@ const T = {
   'hero.lede':        { en: 'ReadToCam puts your script at the top of the screen, right next to the front lens. It scrolls by itself. One take is enough.',
                         ca: 'ReadToCam et posa el guió a dalt de la pantalla, tocant a l’objectiu frontal. Es desplaça sol. Amb una presa n’hi ha prou.',
                         es: 'ReadToCam te pone el guion arriba de la pantalla, pegado al objetivo frontal. Se desplaza solo. Con una toma basta.' },
+  'hero.alt':         { en: 'Someone recording herself at home, holding the phone at arm’s length with the script on screen',
+                        ca: 'Algú gravant-se a casa, amb el telèfon al braç estès i el guió a la pantalla',
+                        es: 'Alguien grabándose en casa, con el teléfono en el brazo extendido y el guion en la pantalla' },
   'badge.alt':        { en: 'Download on the App Store',
                         ca: 'Descarregar a l’App Store',
                         es: 'Consíguelo en el App Store' },
@@ -273,6 +276,10 @@ function setLanguage(lang) {
   /* El distintiu d'Apple és una imatge per idioma, i el text hi va dibuixat
      a dins. Canviar-ne el fitxer és l'única manera de traduir-lo: no es pot
      ni redibuixar ni superposar-hi res. */
+  document.querySelectorAll('[data-i18n-alt]').forEach(img => {
+    const entry = T[img.dataset.i18nAlt];
+    if (entry && entry[lang]) img.alt = entry[lang];
+  });
   document.querySelectorAll('[data-badge]').forEach(img => {
     img.src = `assets/badge-${lang}.svg`;
     img.alt = T['badge.alt'][lang];
