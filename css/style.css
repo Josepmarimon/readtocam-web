@@ -143,6 +143,18 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 .hero p.lede { margin: .9rem 0 1.4rem; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; }
 
+/* El distintiu oficial d'Apple, tal com el donen ells: no es pot redibuixar
+   ni recolorir. Va a 50 px d'alt, per sobre del mínim de 40 que demanen, i
+   l'aire que té a sobre i a sota (26 i 17 px) passa de llarg el 10% de
+   l'alçada que exigeixen de marge.
+
+   L'amplada varia amb l'idioma —el català és el més ample— així que mana
+   l'alçada i l'amplada s'ajusta sola. El farciment amb marge negatiu només
+   eixampla la zona clicable sense moure res de lloc. */
+.badge { display: inline-block; line-height: 0; padding: 5px; margin: -5px; }
+.badge img { height: 50px; width: auto; display: block; }
+.badge:hover img { opacity: .88; }
+
 /* Les condicions econòmiques van just sota del botó i a mida de lectura:
    abans eren una nota en versaletes al peu del bloc i ningú no les veia. */
 .price {

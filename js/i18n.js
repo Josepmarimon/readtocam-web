@@ -13,7 +13,9 @@ const T = {
   'hero.lede':        { en: 'ReadToCam puts your script at the top of the screen, right next to the front lens. It scrolls by itself. One take is enough.',
                         ca: 'ReadToCam et posa el guió a dalt de la pantalla, tocant a l’objectiu frontal. Es desplaça sol. Amb una presa n’hi ha prou.',
                         es: 'ReadToCam te pone el guion arriba de la pantalla, pegado al objetivo frontal. Se desplaza solo. Con una toma basta.' },
-  'hero.cta':         { en: 'Download for free',    ca: 'Descarrega-la gratis',  es: 'Descárgala gratis' },
+  'badge.alt':        { en: 'Download on the App Store',
+                        ca: 'Descarregar a l’App Store',
+                        es: 'Consíguelo en el App Store' },
   'hero.trial':       { en: '7 days free',          ca: '7 dies gratis',        es: '7 días gratis' },
   'hero.after':       { en: 'then €1.50 a month',   ca: 'i després 1,50 € al mes', es: 'y después 1,50 € al mes' },
   'hero.noaccount':   { en: 'No account',           ca: 'Sense compte',        es: 'Sin cuenta' },
@@ -267,6 +269,13 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const entry = T[el.dataset.i18n];
     if (entry && entry[lang]) el.textContent = entry[lang];
+  });
+  /* El distintiu d'Apple és una imatge per idioma, i el text hi va dibuixat
+     a dins. Canviar-ne el fitxer és l'única manera de traduir-lo: no es pot
+     ni redibuixar ni superposar-hi res. */
+  document.querySelectorAll('[data-badge]').forEach(img => {
+    img.src = `assets/badge-${lang}.svg`;
+    img.alt = T['badge.alt'][lang];
   });
   document.querySelectorAll('[data-i18n-aria]').forEach(el => {
     const entry = T[el.dataset.i18nAria];
