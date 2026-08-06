@@ -134,8 +134,35 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 .hero-grid { display: grid; gap: clamp(1.6rem, 3.5vw, 2.6rem); align-items: center; }
 @media (min-width: 900px) { .hero-grid { grid-template-columns: 1fr .82fr; } }
 
+/* Tres afirmacions paral·leles, una per línia. La mida la marca la més
+   llarga en els tres idiomes ("Just read and record.") dins la columna, que
+   al voltant dels 900 px és quan es queda més estreta. */
+.claim span { display: block; }
+.hero .claim { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+.hero .claim + .hero-cta { margin-top: 1.6rem; }
 .hero p.lede { margin: .9rem 0 1.4rem; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; }
+
+/* Les condicions econòmiques van just sota del botó i a mida de lectura:
+   abans eren una nota en versaletes al peu del bloc i ningú no les veia. */
+.price {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .55rem;
+  margin: 1.05rem 0 0; font-size: 1.05rem;
+}
+/* Destaca per mida i pes, no per decoració: el botó ja és lima ple i una
+   segona taca de color al costat es barallaria amb ell. */
+.price b {
+  font-family: var(--display); font-weight: 800; letter-spacing: -.025em;
+  color: var(--ink); font-size: 1.45rem; line-height: 1.1;
+}
+.price span { color: var(--ink-soft); }
+
+/* El missatge que abans obria la pàgina. Ara va després de la portada, sol,
+   amb prou aire perquè es llegeixi com una afirmació i no com un titolet. */
+.hero-2 { padding-block: clamp(2.6rem, 6vw, 4.6rem); }
+.hero-2 h2 { max-width: 18ch; }
+.hero-2 .lede { margin-top: 1rem; }
+
 .terms {
   font-family: var(--mono); font-size: .68rem; letter-spacing: .08em;
   text-transform: uppercase; color: var(--ink-faint); margin-top: .8rem;
@@ -326,7 +353,11 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 .close { text-align: center; }
 .close h2 { margin-bottom: 1.2rem; }
 .close .hero-cta { justify-content: center; }
+/* Els paràgrafs porten amplada de lectura, així que centrar-ne el text els
+   deixava centrats dins la seva pròpia caixa i no dins la secció. */
+.close .terms, .close .price { max-width: none; }
 .close .terms { text-align: center; }
+.close .price { justify-content: center; }
 
 footer { border-top: 1px solid var(--rule); padding-block: 1.6rem; }
 .foot {

@@ -2,18 +2,20 @@
    Cap text visible va escrit a l'HTML: tot passa per data-i18n. */
 
 const T = {
-  'nav.download':     { en: 'Download',            ca: 'Descarrega',          es: 'Descargar' },
+  'nav.download':     { en: 'Download free',       ca: 'Descarrega gratis',   es: 'Descargar gratis' },
 
-  'hero.title':       { en: 'Look at the camera while you read.',
+  'hero.title.1':     { en: 'Stop memorizing.',     ca: 'Prou de memoritzar.', es: 'Basta de memorizar.' },
+  'hero.title.2':     { en: 'Stop repeating.',      ca: 'Prou de repetir.',    es: 'Basta de repetir.' },
+  'hero.title.3':     { en: 'Just read and record.', ca: 'Llegeix i grava.',   es: 'Lee y graba.' },
+  'hero.title2':      { en: 'Look at the camera while you read.',
                         ca: 'Mira a càmera mentre llegeixes.',
                         es: 'Mira a cámara mientras lees.' },
   'hero.lede':        { en: 'ReadToCam puts your script at the top of the screen, right next to the front lens. It scrolls by itself. One take is enough.',
                         ca: 'ReadToCam et posa el guió a dalt de la pantalla, tocant a l’objectiu frontal. Es desplaça sol. Amb una presa n’hi ha prou.',
                         es: 'ReadToCam te pone el guion arriba de la pantalla, pegado al objetivo frontal. Se desplaza solo. Con una toma basta.' },
-  'hero.cta':         { en: 'Download on the App Store', ca: 'Descarrega-la a l’App Store', es: 'Descárgala en el App Store' },
-  'hero.price':       { en: '7 days free, then €1.50 a month',
-                        ca: '7 dies gratis i després 1,50 € al mes',
-                        es: '7 días gratis y después 1,50 € al mes' },
+  'hero.cta':         { en: 'Download for free',    ca: 'Descarrega-la gratis',  es: 'Descárgala gratis' },
+  'hero.trial':       { en: '7 days free',          ca: '7 dies gratis',        es: '7 días gratis' },
+  'hero.after':       { en: 'then €1.50 a month',   ca: 'i després 1,50 € al mes', es: 'y después 1,50 € al mes' },
   'hero.noaccount':   { en: 'No account',           ca: 'Sense compte',        es: 'Sin cuenta' },
   'hero.nothing':     { en: 'Nothing leaves your phone', ca: 'Res no surt del telèfon', es: 'Nada sale de tu teléfono' },
 
