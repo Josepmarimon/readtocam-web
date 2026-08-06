@@ -22,7 +22,7 @@ const T = {
                         ca: 'Descarregar a l’App Store',
                         es: 'Consíguelo en el App Store' },
   'hero.trial':       { en: '7 days free',          ca: '7 dies gratis',        es: '7 días gratis' },
-  'hero.after':       { en: 'then €1.50 a month',   ca: 'i després 1,50 € al mes', es: 'y después 1,50 € al mes' },
+  'hero.after':       { en: 'then €1.49 a month',   ca: 'i després 1,49 € al mes', es: 'y después 1,49 € al mes' },
   'hero.noaccount':   { en: 'No account',           ca: 'Sense compte',        es: 'Sin cuenta' },
   'hero.nothing':     { en: 'Nothing leaves your phone', ca: 'Res no surt del telèfon', es: 'Nada sale de tu teléfono' },
 
