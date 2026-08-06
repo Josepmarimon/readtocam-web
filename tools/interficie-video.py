@@ -7,6 +7,16 @@ l'app amaga els botons de guions, play, girar i ajustos —es queden a opacitat
 0— i el botó vermell passa de cercle a quadrat arrodonit, i això és el que es
 dibuixa aquí.
 
+Tot va dins de la franja vertical 9:16 del centre, que és el que gravaria un
+telèfon dret: 405 px d'ample en un fotograma de 1280, gairebé la mateixa
+amplada que la pantalla real de l'app (402 pt). Els laterals van enfosquits
+per marcar que queden fora de l'enquadrament.
+
+L'enfosquiment es dibuixa aquí i no amb un filtre de ffmpeg perquè només ha
+de sortir al pla del mig: als altres dos veiem la noia d'esquena i allò no
+és el que grava el telèfon, i a sobre el telèfon li quedaria a la zona fosca.
+Entra i surt amb un fos curt perquè no s'encengui de cop.
+
 El vídeo original té tres plans; el del mig (1,0 a 6,375 s) és el primer pla
 parlant a càmera i és l'únic que porta interfície. Per refer-lo:
 
@@ -36,17 +46,23 @@ OPACITAT_PANELL = 0.55
 LINIA_LECTURA = 0.38
 RADI = 16
 
+# La franja que gravaria un telèfon dret: 9:16 centrat.
+FRANJA_A = round(H * 9 / 16)
+FRANJA_X = (W - FRANJA_A) // 2
+
 # El panell acaba al 27% de l'alçada: els ulls li cauen al 31% i tapar-los
 # se'n carregaria el pla, que va justament de mirar a càmera.
-PANELL = (int(W * 0.27), 16, int(W * 0.73), int(H * 0.27))
-COS = 34
-INTERLINIA = 11
+PANELL = (FRANJA_X + 10, 40, FRANJA_X + FRANJA_A - 10, int(H * 0.27))
+COS = 30
+INTERLINIA = 9
 
 GUIO = ("Hi! Welcome to my channel! If you want to improve the way you create "
         "videos, you’ve come to the right place. I’ll show you how!")
 DES_DE, FINS_A = "Welcome", "place"
 
 SEGONS_INICIALS = 12              # el comptador ja porta una estona corrent
+ENFOSQUIT = 0.55                  # els laterals, fora de l'enquadrament vertical
+FOS = 5                           # fotogrames d'entrada i de sortida
 VELOCITAT = 43                    # punts per segon, com a la web
 
 
@@ -116,12 +132,12 @@ def icona_llebre(d, cx, cy, s):
 
 def main(desti, durada):
     font = tipografia("/System/Library/Fonts/SFNSRounded.ttf", COS, 600)
-    mono = tipografia("/System/Library/Fonts/SFNSMono.ttf", 22)
-    petita = tipografia("/System/Library/Fonts/SFNSRounded.ttf", 20, 600)
+    mono = tipografia("/System/Library/Fonts/SFNSMono.ttf", 19)
+    petita = tipografia("/System/Library/Fonts/SFNSRounded.ttf", 17, 600)
 
     x0, y0, x1, y1 = PANELL
     ample_panell, alt_panell = x1 - x0, y1 - y0
-    linies = partir(GUIO, font, ample_panell - 64)
+    linies = partir(GUIO, font, ample_panell - 32)
     alt_linia = COS + INTERLINIA
     centres = [i * alt_linia + alt_linia / 2 for i in range(len(linies))]
 
@@ -139,6 +155,13 @@ def main(desti, durada):
 
         capa = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         d = ImageDraw.Draw(capa)
+
+        # ---- laterals fora de l'enquadrament vertical ----
+        entrada = min(1.0, (n + 1) / FOS)
+        sortida = min(1.0, (total - n) / FOS)
+        alfa = int(255 * ENFOSQUIT * min(entrada, sortida))
+        d.rectangle([0, 0, FRANJA_X, H], fill=(0, 0, 0, alfa))
+        d.rectangle([FRANJA_X + FRANJA_A, 0, W, H], fill=(0, 0, 0, alfa))
 
         # ---- panell del teleprompter ----
         d.rounded_rectangle(PANELL, RADI, fill=(0, 0, 0, int(255 * OPACITAT_PANELL)))
@@ -171,34 +194,34 @@ def main(desti, durada):
         # ---- comptador de gravació ----
         segons = SEGONS_INICIALS + n / FPS
         rellotge = f"{int(segons)//60:02d}:{int(segons)%60:02d}"
-        cx, cy = 54, 44
-        d.rounded_rectangle([cx - 14, cy - 19, cx + 90, cy + 19], 19, fill=FOSC)
-        cercle(d, cx, cy, 6, VERMELL)
-        d.text((cx + 14, cy - 12), rellotge, font=mono, fill=BLANC)
+        cx, cy = FRANJA_X + 34, 24
+        d.rounded_rectangle([cx - 13, cy - 16, cx + 76, cy + 16], 16, fill=FOSC)
+        cercle(d, cx, cy, 5, VERMELL)
+        d.text((cx + 12, cy - 10), rellotge, font=mono, fill=BLANC)
 
         # ---- barra de velocitat ----
-        pill_w, pill_h = 380, 40
-        px, py = (W - pill_w) // 2, H - 128
+        pill_w, pill_h = FRANJA_A - 44, 34
+        px, py = FRANJA_X + 22, H - 112
         d.rounded_rectangle([px, py, px + pill_w, py + pill_h], pill_h // 2, fill=FOSC)
-        icona_tortuga(d, px + 26, py + pill_h/2, 20)
-        icona_llebre(d, px + pill_w - 64, py + pill_h/2, 20)
-        rail_x0, rail_x1 = px + 52, px + pill_w - 88
+        icona_tortuga(d, px + 22, py + pill_h/2, 17)
+        icona_llebre(d, px + pill_w - 56, py + pill_h/2, 17)
+        rail_x0, rail_x1 = px + 44, px + pill_w - 76
         rail_y = py + pill_h / 2
         d.rounded_rectangle([rail_x0, rail_y - 2, rail_x1, rail_y + 2], 2, fill=(255, 255, 255, 70))
         fraccio = (VELOCITAT - 10) / (170 - 10)
         knob = rail_x0 + (rail_x1 - rail_x0) * fraccio
         d.rounded_rectangle([rail_x0, rail_y - 2, knob, rail_y + 2], 2, fill=ACCENT)
-        cercle(d, knob, rail_y, 8, BLANC)
-        d.text((px + pill_w - 40, py + 10), str(VELOCITAT), font=petita, fill=BLANC)
+        cercle(d, knob, rail_y, 7, BLANC)
+        d.text((px + pill_w - 34, py + 8), str(VELOCITAT), font=petita, fill=BLANC)
 
         # ---- botó de gravar ----
         # Mentre es grava, l'app deixa només aquest botó: els de guions, play,
         # girar i ajustos es queden a opacitat 0. I el vermell passa de cercle
         # a quadrat arrodonit, que és com es veu que està enregistrant.
-        bx, by, r = W/2, H - 60, 34
-        d.ellipse([bx - r, by - r, bx + r, by + r], outline=BLANC + (245,), width=5)
-        q = 14
-        d.rounded_rectangle([bx - q, by - q, bx + q, by + q], 7, fill=VERMELL + (255,))
+        bx, by, r = FRANJA_X + FRANJA_A/2, H - 54, 28
+        d.ellipse([bx - r, by - r, bx + r, by + r], outline=BLANC + (245,), width=4)
+        q = 11
+        d.rounded_rectangle([bx - q, by - q, bx + q, by + q], 6, fill=VERMELL + (255,))
 
         capa.save(f"{desti}/{n:04d}.png")
 
