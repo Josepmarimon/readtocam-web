@@ -336,17 +336,25 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
   background: rgba(0,0,0,.5); border-radius: 999px; padding: 3px 6px;
 }
 
-/* ---------- cites del problema ---------- */
+/* ---------- per a qui és ----------
+   Reixa amb filets i no targetes: la secció de funcions, just a sobre,
+   ja és una graella de quatre en dues columnes, i repetir-la quedava monòton. */
 
-.quotes { display: grid; gap: 0; border-top: 1px solid var(--rule); margin-top: 1.5rem; }
-@media (min-width: 720px) { .quotes { grid-template-columns: 1fr 1fr; } }
-.quote {
-  padding: .8rem 1.3rem .8rem 0;
+.profiles { display: grid; gap: 0; border-top: 1px solid var(--rule); margin-top: 1.6rem; }
+@media (min-width: 760px) { .profiles { grid-template-columns: 1fr 1fr; } }
+.profile {
+  display: grid; gap: .4rem; align-content: start;
+  padding: 1.3rem 1.5rem 1.4rem 0;
   border-bottom: 1px solid var(--rule);
-  color: var(--ink-soft); font-size: .97rem;
 }
-@media (min-width: 720px) { .quote:nth-child(even) { padding-left: 1.6rem; } }
-.verdict { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin-top: 1.4rem; }
+@media (min-width: 760px) {
+  .profile:nth-child(even) { padding-left: 1.8rem; border-left: 1px solid var(--rule); }
+}
+.profile-role {
+  font-family: var(--mono); font-size: .66rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--lime-deep);
+}
+.profile p { color: var(--ink-soft); margin: 0; font-size: .97rem; }
 
 /* ---------- funcions ---------- */
 
