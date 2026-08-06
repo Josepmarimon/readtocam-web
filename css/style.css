@@ -364,7 +364,6 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
   display: block; width: 100%; height: auto; border-radius: 16px;
   border: 1px solid var(--rule); background: var(--dark);
 }
-.shot--tall { max-width: 232px; margin-top: .4rem; }
 
 .gallery { display: grid; gap: 1.2rem; margin-top: 1.8rem; }
 @media (min-width: 720px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
