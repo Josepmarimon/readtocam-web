@@ -101,9 +101,9 @@ const T = {
                         es: 'Una biblioteca en el teléfono, con recuento de palabras y estimación de cuánto se tarda en leerlo en voz alta. Los archivos TXT, Markdown y RTF entran directamente.' },
 
   'gallery.eyebrow':  { en: 'Inside the app',       ca: 'Dins de l’app',       es: 'Dentro de la app' },
-  'gallery.title':    { en: 'Portrait, landscape, and the settings that matter.',
-                        ca: 'Vertical, apaïsat i els ajustos que compten.',
-                        es: 'Vertical, horizontal y los ajustes que cuentan.' },
+  'gallery.title':    { en: 'Record in portrait or landscape. And set it up however you like.',
+                        ca: 'Grava en vertical o horitzontal. I configura-ho com vulguis.',
+                        es: 'Graba en vertical u horizontal. Y configúralo como quieras.' },
   'gallery.1':        { en: 'Landscape: the controls move to the right and the text stays in a band.',
                         ca: 'Apaïsat: els controls passen a la dreta i el text es queda en una franja.',
                         es: 'Horizontal: los controles pasan a la derecha y el texto se queda en una franja.' },
