@@ -138,7 +138,10 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
    llarga en els tres idiomes ("Just read and record.") dins la columna, que
    al voltant dels 900 px és quan es queda més estreta. */
 .claim span { display: block; }
-.hero .claim { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+/* 4,7vw i no 5: la línia més llarga de les tres —el castellà— ocupava el
+   99% de la columna, i com que la lletra i la columna creixen totes dues
+   amb la finestra, es partia a qualsevol amplada. Amb això hi ha marge. */
+.hero .claim { font-size: clamp(2.1rem, 4.7vw, 3.6rem); }
 .hero .claim + .hero-cta { margin-top: 1.6rem; }
 .hero p.lede { margin: .9rem 0 1.4rem; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; }
@@ -438,3 +441,26 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.6rem; }
 .faq summary::after { content: "+"; margin-left: auto; color: var(--lime-deep); font-family: var(--mono); }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { margin: 0 0 1.15rem; }
+
+/* ---------- crea fora del feed ---------- */
+
+/* Els noms de les xarxes, no els seus logotips: aquí són on acaba el
+   vídeo, no socis ni integracions. Amb els logos semblaria que l'app hi
+   publica sola, i el que fa és desar-lo al carret. */
+.destins {
+  display: flex; flex-wrap: wrap; gap: .5rem .75rem;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+}
+.destins span {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(.95rem, 1.7vw, 1.15rem);
+  letter-spacing: -.01em; line-height: 1;
+  color: #8d949c;              /* tots iguals i apagats: cap no és soci nostre */
+  padding: .5em .85em; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.destins-peu {
+  margin-top: 1.1rem; max-width: 46ch;
+  font-size: .95rem; color: #9aa1a9;
+}
