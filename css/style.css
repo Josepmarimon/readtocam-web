@@ -464,3 +464,28 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.6rem; }
   margin-top: 1.1rem; max-width: 46ch;
   font-size: .95rem; color: #9aa1a9;
 }
+
+/* ---------- les tres passes ---------- */
+
+.passes-list {
+  counter-reset: passa; list-style: none;
+  display: grid; gap: 1.6rem; margin: clamp(1.8rem, 4vw, 2.6rem) 0 0; padding: 0;
+}
+@media (min-width: 760px) { .passes-list { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+
+/* El número el posa el comptador i no l'HTML: si algun dia se'n mou una
+   d'ordre, no cal tocar res. */
+.passes-list li { counter-increment: passa; }
+.passes-list li::before {
+  content: counter(passa);
+  display: block; margin-bottom: .7rem;
+  font-family: var(--display); font-weight: 800; font-size: 1.05rem;
+  width: 2.1rem; height: 2.1rem; line-height: 2.1rem; text-align: center;
+  border-radius: 50%; background: var(--lime); color: var(--dark);
+}
+.passes-list h3 {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  letter-spacing: -.01em; margin: 0 0 .35rem;
+}
+.passes-list p { font-size: .95rem; color: var(--ink-soft); margin: 0; }
