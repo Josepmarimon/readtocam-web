@@ -27,9 +27,9 @@ const T = {
   'hero.nothing':     { en: 'Nothing leaves your phone', ca: 'Res no surt del telèfon', es: 'Nada sale de tu teléfono' },
 
   'who.eyebrow':      { en: 'Who it’s for',        ca: 'Per a qui',           es: 'Para quién' },
-  'who.title':        { en: 'You don’t always need a script for the same reason',
-                        ca: 'No sempre necessites un guió pel mateix motiu',
-                        es: 'No siempre necesitas un guion por el mismo motivo' },
+  'who.title':        { en: 'Useful for you and for everyone else!',
+                        ca: 'Útil per a tu i per a tothom!',
+                        es: '¡Útil para ti y para todo el mundo!' },
 
   'who.1.role':       { en: 'Influencers',          ca: 'Influencers',         es: 'Influencers' },
   'who.1.title':      { en: 'Everything you need, in your pocket.',
