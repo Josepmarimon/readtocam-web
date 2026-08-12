@@ -8,14 +8,17 @@
   --ink: #15191e;
   --ink-soft: #5b6067;
   --ink-faint: #8d9298;
-  --lime: #c6f24a;
-  --lime-deep: #8fae2a;
+  /* Un sol to per a tota la marca, en tres punts de lluminositat, perquè
+     cadascun passi el contrast al fons que li toca. Comprovat amb WCAG,
+     no a ull: sobre aquest paper el lima clar es queda en 1,21:1. */
+  --lime: #c6f24a;       /* només sobre fons fosc — 13,62:1 */
+  --lime-deep: #6b8a18;  /* marques i text gran sobre paper — 3,55:1 */
+  --lime-text: #556e11;  /* text petit sobre paper — 5,17:1 */
   --rule: #dedbd2;
   --dark: #15191e;
 
-  /* Colors de la marca. El "Cam" agafa el lima de la pàgina en la versió
-     fosca, no el clar: sobre el paper el lima clar es queda en 1,16:1 i la
-     paraula desapareix. Aquest es llegeix com el taronja que hi havia abans. */
+  /* El "Cam" del logotip agafa el lima fosc: és text gran sobre paper i amb
+     el clar es quedava en 1,21:1, o sigui invisible. */
   --logo-ink: #1c2b5e;
   --logo-accent: var(--lime-deep);
 
@@ -219,7 +222,7 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
   display: grid; place-items: center;
 }
 .phone {
-  --app-accent: #ffc74c;          /* el groc de l'app, no el lima de la pàgina */
+  --app-accent: var(--lime);      /* el mateix lima que la pàgina: ja no són dos colors */
   --app-font: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, sans-serif;
   width: min(270px, 74vw); aspect-ratio: 9 / 19.5;
   background: var(--dark) url("../assets/phone-bg.jpg") center top / cover no-repeat;
@@ -380,7 +383,7 @@ section { padding-block: clamp(2.4rem, 5.5vw, 4.2rem); }
 .feature { display: grid; gap: .65rem; align-content: start; }
 .feature-num {
   font-family: var(--mono); font-size: .66rem; letter-spacing: .14em;
-  color: var(--lime-deep);
+  color: var(--lime-text);
 }
 .feature p { color: var(--ink-soft); margin: 0; }
 
@@ -438,7 +441,7 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.6rem; }
   display: flex; gap: 1rem; align-items: baseline;
 }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; margin-left: auto; color: var(--lime-deep); font-family: var(--mono); }
+.faq summary::after { content: "+"; margin-left: auto; color: var(--lime-text); font-family: var(--mono); }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { margin: 0 0 1.15rem; }
 
