@@ -17,9 +17,10 @@
   --rule: #dedbd2;
   --dark: #15191e;
 
-  /* El "Cam" del logotip agafa el lima fosc: és text gran sobre paper i amb
-     el clar es quedava en 1,21:1, o sigui invisible. */
-  --logo-ink: #1c2b5e;
+  /* El «Read» del logotip agafa el lima fosc: és text gran sobre paper i amb
+     el clar es quedava en 1,21:1, o sigui invisible. El blau marí que hi
+     havia abans no sortia enlloc més de la marca; ara és la tinta de sempre. */
+  --logo-ink: var(--ink);
   --logo-accent: var(--lime-deep);
 
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
@@ -70,9 +71,11 @@ body {
   letter-spacing: -.02em; line-height: 1;
   color: var(--logo-ink);
 }
-.logo b  { font-weight: 800; font-style: normal; }
+/* L'accent va a «Read», com al logotip dibuixat: és el verb, i «ToCam»
+   li penja. Abans el portava «Cam» i les dues versions no coincidien. */
+.logo b  { font-weight: 800; font-style: normal; color: var(--logo-accent); }
 .logo i  { font-weight: 500; font-style: normal; }
-.logo em { font-weight: 800; font-style: normal; color: var(--logo-accent); }
+.logo em { font-weight: 800; font-style: normal; }
 .logo-tag {
   font-family: "Montserrat", var(--display);
   font-weight: 500; font-size: .52em;
