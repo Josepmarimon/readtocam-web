@@ -172,6 +172,7 @@ const T = {
                         es: 'Una app de Creàtica, Barcelona.' },
   'foot.support':     { en: 'Support',              ca: 'Suport',              es: 'Soporte' },
   'foot.privacy':     { en: 'Privacy',              ca: 'Privadesa',           es: 'Privacidad' },
+  'foot.terms':       { en: 'Terms',                ca: 'Condicions',          es: 'Condiciones' },
   'foot.home':        { en: 'Home',                 ca: 'Inici',               es: 'Inicio' },
 
   /* ---------- suport ---------- */
@@ -277,6 +278,75 @@ const T = {
   'pri.s8.b':         { en: 'For any question about this policy, write to josep@estudicreatica.cat. ReadToCam is an app by Creàtica, a communication studio based in Barcelona.',
                         ca: 'Per a qualsevol dubte sobre aquesta política, escriu a josep@estudicreatica.cat. ReadToCam és una app de Creàtica, estudi de comunicació amb seu a Barcelona.',
                         es: 'Para cualquier duda sobre esta política, escribe a josep@estudicreatica.cat. ReadToCam es una app de Creàtica, estudio de comunicación con sede en Barcelona.' },
+
+  /* ---------- condicions d'ús ---------- */
+
+  'ter.eyebrow':      { en: 'ReadToCam',            ca: 'ReadToCam',           es: 'ReadToCam' },
+  'ter.title':        { en: 'Terms of use',         ca: 'Condicions d’ús',     es: 'Condiciones de uso' },
+  'ter.lede':         { en: 'These are the terms for using ReadToCam. Plain language, no surprises: you keep your scripts and your videos, and you can cancel whenever you want.',
+                        ca: 'Aquestes són les condicions per fer servir ReadToCam. En pla, sense sorpreses: els guions i els vídeos són teus, i pots cancel·lar quan vulguis.',
+                        es: 'Estas son las condiciones para usar ReadToCam. En claro, sin sorpresas: los guiones y los vídeos son tuyos, y puedes cancelar cuando quieras.' },
+  'ter.updated':      { en: 'Last updated: August 2026', ca: 'Última actualització: agost de 2026', es: 'Última actualización: agosto de 2026' },
+
+  'ter.s1.t':         { en: 'Who provides the app', ca: 'Qui ofereix l’app',   es: 'Quién ofrece la app' },
+  'ter.s1.b':         { en: 'ReadToCam is an app by Creàtica, the trading name of Josep Maria Marimon Soler, Passatge Borrell 1, 3-3, 08005 Barcelona, Spain. Tax number ES38129834C. You can write to josep@estudicreatica.cat. Using the app means accepting these terms; if you do not accept them, do not use it.',
+                        ca: 'ReadToCam és una app de Creàtica, nom comercial de Josep Maria Marimon Soler, Passatge Borrell 1, 3r 3a, 08005 Barcelona. NIF ES38129834C. Pots escriure a josep@estudicreatica.cat. Fer servir l’app vol dir acceptar aquestes condicions; si no les acceptes, no la facis servir.',
+                        es: 'ReadToCam es una app de Creàtica, nombre comercial de Josep Maria Marimon Soler, Passatge Borrell 1, 3º 3ª, 08005 Barcelona. NIF ES38129834C. Puedes escribir a josep@estudicreatica.cat. Usar la app significa aceptar estas condiciones; si no las aceptas, no la uses.' },
+
+  'ter.s2.t':         { en: 'What you get',         ca: 'Què hi guanyes',      es: 'Qué obtienes' },
+  'ter.s2.b':         { en: 'A personal licence to install and use ReadToCam on the devices of your app store account, for as long as these terms are in force. The app is licensed, not sold. You may not resell it, rent it or take it apart beyond what the law allows.',
+                        ca: 'Una llicència personal per instal·lar i fer servir ReadToCam als aparells del teu compte de la botiga, mentre aquestes condicions siguin vigents. L’app se’t cedeix, no se’t ven. No la pots revendre, llogar ni desmuntar més enllà del que permeti la llei.',
+                        es: 'Una licencia personal para instalar y usar ReadToCam en los dispositivos de tu cuenta de la tienda, mientras estas condiciones estén vigentes. La app se cede, no se vende. No puedes revenderla, alquilarla ni desmontarla más allá de lo que permita la ley.' },
+
+  'ter.s3.t':         { en: 'Your scripts and your videos are yours', ca: 'Els guions i els vídeos són teus', es: 'Los guiones y los vídeos son tuyos' },
+  'ter.s3.b':         { en: 'We claim no rights over what you write or record, and we cannot see any of it: everything stays on your device. Nothing we add gets into your videos either, because the app puts no watermark on them. What you record is your responsibility, including having the rights to the text you read and the consent of anyone who appears.',
+                        ca: 'No reclamem cap dret sobre el que escrius ni sobre el que graves, i tampoc no ho podem veure: tot es queda al teu aparell. Tampoc no hi posem res nostre a dins, perquè l’app no marca els vídeos amb cap logotip. El que graves és cosa teva, incloent-hi tenir els drets del text que llegeixes i el consentiment de qui hi surti.',
+                        es: 'No reclamamos ningún derecho sobre lo que escribes ni sobre lo que grabas, y tampoco podemos verlo: todo se queda en tu dispositivo. Tampoco metemos nada nuestro dentro, porque la app no marca los vídeos con ningún logotipo. Lo que grabas es cosa tuya, incluido tener los derechos del texto que lees y el consentimiento de quien aparezca.' },
+
+  'ter.s4.t':         { en: 'Free trial and subscription', ca: 'Prova gratuïta i subscripció', es: 'Prueba gratuita y suscripción' },
+  'ter.s4.b':         { en: 'The app opens with a seven-day free trial. After that, recording needs a subscription of €1.49 a month, which renews on its own until you cancel it. The price shown in the app is the one that applies, taxes included, and it may differ by country.',
+                        ca: 'L’app s’obre amb set dies de prova gratuïta. Passats, per gravar cal una subscripció d’1,49 € al mes, que es renova sola fins que la cancel·les. El preu que et surti a l’app és el que val, impostos inclosos, i pot canviar segons el país.',
+                        es: 'La app se abre con siete días de prueba gratuita. Pasados, para grabar hace falta una suscripción de 1,49 € al mes, que se renueva sola hasta que la cancelas. El precio que veas en la app es el que vale, impuestos incluidos, y puede cambiar según el país.' },
+
+  'ter.s5.t':         { en: 'Who charges you, and how to cancel', ca: 'Qui et cobra i com cancel·lar', es: 'Quién te cobra y cómo cancelar' },
+  'ter.s5.b':         { en: 'The charge is handled by the store you downloaded the app from, not by us: we never see your card, your name or your address. You cancel from the subscriptions section of that same store, at any time and without giving a reason. Cancelling stops the next renewal; you keep recording until the end of the period you have already paid for.',
+                        ca: 'El cobrament el gestiona la botiga d’on t’has baixat l’app, no nosaltres: no veiem mai la teva targeta, ni el teu nom, ni la teva adreça. La cancel·lació es fa des de l’apartat de subscripcions d’aquesta mateixa botiga, quan vulguis i sense haver de donar cap motiu. Cancel·lar atura la propera renovació; pots seguir gravant fins al final del període que ja has pagat.',
+                        es: 'El cobro lo gestiona la tienda desde la que te has descargado la app, no nosotros: nunca vemos tu tarjeta, ni tu nombre, ni tu dirección. La cancelación se hace desde el apartado de suscripciones de esa misma tienda, cuando quieras y sin tener que dar ningún motivo. Cancelar detiene la siguiente renovación; puedes seguir grabando hasta el final del periodo que ya has pagado.' },
+
+  'ter.s6.t':         { en: 'Refunds and the right to withdraw', ca: 'Devolucions i dret de desistiment', es: 'Devoluciones y derecho de desistimiento' },
+  'ter.s6.b':         { en: 'Because the store is the one that charges you, refunds are requested there and follow its policy. If you are a consumer in the European Union you also have fourteen days to withdraw from a purchase of digital services; by subscribing you ask us to start the service straight away, which is what makes recording work from the first minute. Whatever you decide, write to us as well and we will help you get it sorted.',
+                        ca: 'Com que qui cobra és la botiga, les devolucions es demanen allà i segueixen la seva política. Si ets consumidor a la Unió Europea, també tens catorze dies per desistir d’una compra de serveis digitals; en subscriure’t ens demanes que el servei comenci de seguida, que és el que fa que puguis gravar des del primer minut. Decideixis el que decideixis, escriu-nos també a nosaltres i t’ajudarem a resoldre-ho.',
+                        es: 'Como quien cobra es la tienda, las devoluciones se piden allí y siguen su política. Si eres consumidor en la Unión Europea, también tienes catorce días para desistir de una compra de servicios digitales; al suscribirte nos pides que el servicio empiece enseguida, que es lo que hace que puedas grabar desde el primer minuto. Decidas lo que decidas, escríbenos también a nosotros y te ayudaremos a resolverlo.' },
+
+  'ter.s7.t':         { en: 'What you agree not to do', ca: 'El que et compromets a no fer', es: 'Lo que te comprometes a no hacer' },
+  'ter.s7.b':         { en: 'Use the app for anything unlawful, record people where the law requires their consent and you do not have it, or try to get around the subscription. That is the whole list.',
+                        ca: 'Fer servir l’app per a res il·legal, gravar persones allà on la llei demani el seu consentiment i no el tinguis, o mirar de saltar-te la subscripció. La llista s’acaba aquí.',
+                        es: 'Usar la app para algo ilegal, grabar a personas allí donde la ley pida su consentimiento y no lo tengas, o intentar saltarte la suscripción. La lista se acaba aquí.' },
+
+  'ter.s8.t':         { en: 'What the app does not promise', ca: 'El que l’app no promet', es: 'Lo que la app no promete' },
+  'ter.s8.b':         { en: 'ReadToCam works with the camera, the microphone and the storage of your phone, and those are not ours. We cannot promise it will work on every device, in every version of the operating system, or that it will never fail. Back up the takes that matter: a recording that is only in one place is a recording you can lose.',
+                        ca: 'ReadToCam funciona amb la càmera, el micròfon i el disc del teu telèfon, i aquests no són nostres. No podem prometre que anirà a tots els aparells, a totes les versions del sistema, ni que no fallarà mai. Fes còpia de les preses que importin: una gravació que només és en un lloc és una gravació que pots perdre.',
+                        es: 'ReadToCam funciona con la cámara, el micrófono y el disco de tu teléfono, y esos no son nuestros. No podemos prometer que irá en todos los dispositivos, en todas las versiones del sistema, ni que no fallará nunca. Haz copia de las tomas que importen: una grabación que solo está en un sitio es una grabación que puedes perder.' },
+
+  'ter.s9.t':         { en: 'Liability',            ca: 'Responsabilitat',     es: 'Responsabilidad' },
+  'ter.s9.b':         { en: 'We answer for the damage we cause you, up to what the law says and no less. What we do not take on is the indirect damage: a lost recording, a video that did not go out on time, a job that did not come through. None of this touches the rights the law gives you as a consumer, which stand whatever this page says.',
+                        ca: 'Responem del dany que et causem, fins on digui la llei i no menys. El que no assumim és el dany indirecte: una gravació perduda, un vídeo que no va sortir a temps, una feina que no va arribar. Res d’això no toca els drets que la llei et dona com a consumidor, que valen digui el que digui aquesta pàgina.',
+                        es: 'Respondemos del daño que te causemos, hasta donde diga la ley y no menos. Lo que no asumimos es el daño indirecto: una grabación perdida, un vídeo que no salió a tiempo, un trabajo que no llegó. Nada de esto toca los derechos que la ley te da como consumidor, que valen diga lo que diga esta página.' },
+
+  'ter.s10.t':        { en: 'Privacy',              ca: 'Privadesa',           es: 'Privacidad' },
+  'ter.s10.b':        { en: 'The app collects no personal data at all. How that works, permission by permission, is in the privacy policy at readtocam.app/privacy.html.',
+                        ca: 'L’app no recull cap dada personal. Com funciona això, permís per permís, és a la política de privadesa: readtocam.app/privacy.html.',
+                        es: 'La app no recoge ningún dato personal. Cómo funciona esto, permiso por permiso, está en la política de privacidad: readtocam.app/privacy.html.' },
+
+  'ter.s11.t':        { en: 'Changes and ending',   ca: 'Canvis i final',      es: 'Cambios y final' },
+  'ter.s11.b':        { en: 'These terms can change, and the date at the top says when they last did; if a change matters, you will see it in the app before it applies. You end this by cancelling the subscription and deleting the app. We can end it if you break these terms, and in that case we refund what you have paid for the part you have not used.',
+                        ca: 'Aquestes condicions poden canviar, i la data de dalt diu quan ho van fer per última vegada; si un canvi importa, el veuràs a l’app abans que s’apliqui. Tu ho acabes cancel·lant la subscripció i esborrant l’app. Nosaltres podem acabar-ho si incompleixes aquestes condicions, i en aquest cas et tornem el que hagis pagat de la part que no has fet servir.',
+                        es: 'Estas condiciones pueden cambiar, y la fecha de arriba dice cuándo lo hicieron por última vez; si un cambio importa, lo verás en la app antes de que se aplique. Tú lo acabas cancelando la suscripción y borrando la app. Nosotros podemos acabarlo si te saltas las condiciones, y en ese caso te devolvemos lo que hayas pagado de la parte que no has usado.' },
+
+  'ter.s12.t':        { en: 'Law, disputes and contact', ca: 'Llei, desacords i contacte', es: 'Ley, desacuerdos y contacto' },
+  'ter.s12.b':        { en: 'Spanish law applies. If you are a consumer, you can also go to the courts where you live, and nothing here takes that away. Before any of that, write to josep@estudicreatica.cat: most things get sorted with one email.',
+                        ca: 'S’hi aplica la llei espanyola. Si ets consumidor, també pots anar als jutjats d’on visquis, i res d’aquí no t’ho treu. Abans de res d’això, escriu a josep@estudicreatica.cat: la majoria de coses es resolen amb un correu.',
+                        es: 'Se aplica la ley española. Si eres consumidor, también puedes acudir a los juzgados de donde vivas, y nada de aquí te lo quita. Antes de todo eso, escribe a josep@estudicreatica.cat: la mayoría de cosas se resuelven con un correo.' },
 
   /* ---------- el prompter de la portada ---------- */
 
